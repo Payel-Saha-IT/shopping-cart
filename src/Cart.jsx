@@ -9,7 +9,7 @@ const Cart = () => {
     }
     let totalPrice=0;
     cart_all_product.map((val)=>{
-        totalPrice=totalPrice+val.price;
+        return totalPrice=totalPrice+val.price;
         
     })
 
