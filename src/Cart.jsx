@@ -10,6 +10,7 @@ const Cart = () => {
     let totalPrice=0;
     cart_all_product.map((val)=>{
         totalPrice=totalPrice+val.price;
+        
     })
 
     if(cart_all_product.length>0)  
@@ -18,7 +19,7 @@ const Cart = () => {
         <>
         <div className='cart-items-price'>
         <div className='total-items'><h3>Total Items:{cart_item_count}</h3></div>
-        <div className='total-price'><h3>Total Cart Price:{totalPrice}</h3></div>
+        <div className='total-price'><h3>Total Cart Price:{(Math.round(totalPrice * 100) / 100).toFixed(2)}₹</h3></div>
         </div>
         
         <div className='cart-container'>
