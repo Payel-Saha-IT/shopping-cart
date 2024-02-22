@@ -1,6 +1,7 @@
 import React from 'react';
 import Cards from './Cards';
 import {useGlobalContext} from './AppProvider';
+
 const Products = () => {
 
   const {products,setCartItem}=useGlobalContext();
@@ -17,15 +18,17 @@ if(products.length>0)
   return (
     <>
         <div className='card-container'>
+        
         {products.map((val,index)=>{
             
                 return (
-                   
+                 
                         <Cards key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate} addtoCart={AddItem} unqID={val.id}></Cards>
                    
                 )
             })
         }
+        
         </div>
     </>
   )

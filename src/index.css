@@ -22,10 +22,10 @@
   align-items: center;
   width: 10%;
 }
-a{
+ a{
   color: white !important;
   text-decoration: none !important;
-}
+} 
 
 .select-box{
   width: 50%;
@@ -82,10 +82,10 @@ background:rgb(182, 167, 240);
  
 }
 
-.card-description
+.card-description p
 {
-  text-align: center;
-  margin: 10px;
+  text-align: center!important;
+  margin: 10px !important;
 }
 
 .card-rate-price{
@@ -154,3 +154,25 @@ background:rgb(182, 167, 240);
   background-color: rgb(128, 0, 79);
 }
 
+.product-item-details{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.product-image{
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.product-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  
+} 
+
+.category{
+  color: rgb(247, 2, 84);
+}
