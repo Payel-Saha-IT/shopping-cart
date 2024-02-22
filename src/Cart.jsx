@@ -45,7 +45,7 @@ const Cart = () => {
     <>
     <div className='cart-container'>
     <div className='not-found'>
-    <h2>Your Cart is Empty</h2>
+    <h2>Your Cart is Empty!!</h2>
     </div>
     
     </div>
