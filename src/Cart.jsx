@@ -11,6 +11,8 @@ const Cart = () => {
     cart_all_product.map((val)=>{
         totalPrice=totalPrice+val.price;
     })
+
+    if(cart_all_product.length>0)  
   return (
     <div>
         <>
@@ -38,6 +40,19 @@ const Cart = () => {
     </>
     </div>
   )
+
+  return (
+    <>
+    <div className='cart-container'>
+    <div className='not-found'>
+    <h2>Your Cart is Empty</h2>
+    </div>
+    
+    </div>
+  
+    </>
+    
+    )
 }
 
 export default Cart;
