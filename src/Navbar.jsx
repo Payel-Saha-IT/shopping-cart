@@ -30,7 +30,7 @@ console.log(location);
             <NavLink to='/' onClick={GoHome}>Home</NavLink>
             </div>
             
-           {(location.pathname==='/')?(
+           {(location.pathname==='/' || location.pathname==='/shopping-cart')?(
 
             <><div className='select-box'>
 
