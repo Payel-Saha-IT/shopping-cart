@@ -10,39 +10,58 @@ const reducer = (state,action) => {
           all_products:action.payload
         };
         
+    //set category type,upon selecting category type from select box    
     case "SET_CATEGORY":
        return {
         ...state,
         category_type:action.payload,
        }    
        
-
+        //set rating type,upon selecting rating type from select box 
        case "SET_RATING":
         return {
          ...state,
          rating_type:action.payload,
         }     
        
+
+        // Filter based on both category and rating if they are selected
+        //IMPORTANT-->keep all products in an seperate array from "products[]" here "all_products[]"
+            //because if your product array got changed,then next time when you filter,you make filter with the current filterd items
+            //not with all actual product items,which is a problem
+
         case "SET_FILTERED_ITEMS":
-          // Filter based on both category and rating if they are selected
+          
           let filteredProducts;
-          if (state.category_type!=="" && state.rating_type!=="") {
-            // Both category and rating are selected
+
+           // Both category and rating are selected
+          if ((state.category_type!=="" && state.category_type!=="all") && (state.rating_type!=="" && state.rating_type!=="all")) {
+           
             filteredProducts = state.all_products.filter((val) => {
               return val.category === state.category_type && parseInt(val.rating.rate) === parseInt(state.rating_type);
             });
-          } else if (state.category_type!=="") {
-            // Only category is selected
+          } 
+          
+
+          // Only category is selected
+          else if (state.category_type!=="" && state.category_type!=="all") {
+            
             filteredProducts = state.all_products.filter((val) => {
               return val.category === state.category_type;
             });
-          } else if (state.rating_type!=="") {
-            // Only rating is selected
+          } 
+          
+          // Only rating is selected
+          else if (state.rating_type!=="" && state.rating_type!=="all") {
+            
             filteredProducts = state.all_products.filter((val) => {
               return parseInt(val.rating.rate) === parseInt(state.rating_type);
             });
-          } else {
-            // Neither category nor rating is selected, return all products
+          } 
+          
+          // Neither category nor rating is selected, return all products
+          else {
+            
             filteredProducts = state.all_products;
           }
         
@@ -65,6 +84,7 @@ const reducer = (state,action) => {
       }
 
 
+      //add items to cart
         case "SET_CART_ITEM":
             const cartItem = state.all_products.filter((val) => {
               return action.payload === val.id;
@@ -75,7 +95,8 @@ const reducer = (state,action) => {
               cart_item_count:state.cart_item_count+1,
               cart_all_product: updatedCartAllProduct, // Update cart_all_product with the updated array
             };
-            
+          
+        //delete items from the cart    
          case "DELETE_CART_ITEM":
           const remainingItem = state.cart_all_product.filter((val) => {
             return action.payload !== val.id;

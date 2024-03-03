@@ -36,6 +36,7 @@ console.log(location);
 
             <select onChange={InputEvent} value={category_type}>
               <option disabled value="">Choose a category</option>
+              <option value="all">All</option>
               <option value="electronics">electronics</option>
               <option value="jewelery">jewelery</option>
               <option value="men's clothing">men's clothing</option>
@@ -47,6 +48,7 @@ console.log(location);
 
               <select onChange={RatingEvent} value={rating_type}>
                 <option disabled value="">Choose Rating</option>
+                <option value="all">All</option>
                 <option value="4">4-5</option>
                 <option value="3">3-4</option>
                 <option value="2">2-3</option>

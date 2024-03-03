@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Cards from './Cards';
-import {useGlobalContext} from './AppProvider';
+import AppProvider, {useGlobalContext} from './AppProvider';
 
 const Products = () => {
 
   const {products,setCartItem}=useGlobalContext();
   console.log(products);
 
+  
 const AddItem=(id)=>{
   console.log(id);
   setCartItem(id);
@@ -22,7 +23,7 @@ if(products.length>0)
         {products.map((val,index)=>{
             
                 return (
-                 
+                 //we have passed a props named unqID,though we had props key,because if we use 'key',console.log(id) in AddItem will show undefined
                         <Cards key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate} addtoCart={AddItem} unqID={val.id}></Cards>
                    
                 )

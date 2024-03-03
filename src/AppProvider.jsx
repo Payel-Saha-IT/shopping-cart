@@ -67,7 +67,7 @@ console.log(state.cart_products);
                 dispatch({ type: "Show_Home_Page", payload: res.data });
             })
             .catch((error) => {
-                console.error('Error loading products:', error);
+                console.log('Error loading products:', error.message);
                 // Handle error appropriately
             });
     };
