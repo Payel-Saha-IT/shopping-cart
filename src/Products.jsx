@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Cards from './Cards';
-import AppProvider, {useGlobalContext} from './AppProvider';
+import {useGlobalContext} from './AppProvider';
+import { spiral } from 'ldrs'
 
+spiral.register()
 const Products = () => {
 
-  const {products,setCartItem}=useGlobalContext();
+  const {products,setCartItem,isLoading}=useGlobalContext();
   console.log(products);
 
   
@@ -13,6 +15,22 @@ const AddItem=(id)=>{
   setCartItem(id);
 }
 
+
+
+
+
+// Default values shown
+
+
+if(isLoading)
+
+ return <div className="load-class">
+<l-spiral
+size="80"
+speed="0.9" 
+color="#fc00b1" 
+></l-spiral>
+ </div>
 
 //if poduct are found then shows the products    
 if(products.length>0)

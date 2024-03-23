@@ -29,7 +29,7 @@ const Cards = (props) => {
            
 
             <div className='card-rate-price'>
-                <h5>Price:{props.price}₹</h5>
+                <h5>Price:${props.price}</h5>
                 <h5>Rating:{props.rate}</h5>
                 <IconButton color="primary" aria-label="add to shopping cart" onClick={SelectItem}>
             <AddShoppingCartSharp />

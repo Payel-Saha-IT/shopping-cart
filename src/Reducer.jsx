@@ -2,10 +2,17 @@ const reducer = (state,action) => {
    
   switch(action.type)
   {
+
+    case "SET_Loading":
+      return{
+        ...state,
+        isLoading:true
+      }
     
     case "Show_Home_Page":
         return {
           ...state,
+          isLoading:false,
           products:action.payload,
           all_products:action.payload
         };

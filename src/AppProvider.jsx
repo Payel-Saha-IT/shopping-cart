@@ -9,6 +9,7 @@ const AppProvider = ({children}) => {
 
     //initial state of useReducer Hook
     const initialState={
+        isLoading:true,
         products:[],
         category_type:"",
         filtered_products:[],
@@ -62,6 +63,7 @@ console.log(state.cart_products);
     
     //function that called when the page is loading for the first time or when Home is clicked
     const loadProductsAndShowHomePage = () => {
+        dispatch({type:"SET_Loading"})
         axios.get('https://fakestoreapi.com/products')
             .then((res) => {
                 dispatch({ type: "Show_Home_Page", payload: res.data });

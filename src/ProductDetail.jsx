@@ -32,7 +32,7 @@ const ProductDetail = () => {
     </div>
 
     <div className='card-rate-price'>
-        <h5>Price:{productItem[0].price}₹</h5>
+        <h5>Price:${productItem[0].price}</h5>
         <h5>Rating:{productItem[0].rating.rate}</h5>
         
     </div>

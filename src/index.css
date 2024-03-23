@@ -176,3 +176,12 @@ background:rgb(182, 167, 240);
 .category{
   color: rgb(247, 2, 84);
 }
+
+.load-class{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 70vh;
+  align-items: center;
+}
+
