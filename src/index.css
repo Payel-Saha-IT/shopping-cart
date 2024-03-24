@@ -27,19 +27,30 @@
   text-decoration: none !important;
 } 
 
-.select-box{
+.desktop-menu{
   width: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.menu-div{
+  width: 70%;
+  margin:0 20px;
+  
 }
 
 select{
-  width: 50%;
+  width: 100%;
   border: none;
-  padding: 5px;
+  padding: 7px 45px;
   border-radius: 5px;
 }
 
+select{
+  font-weight: bold;
+  color: rgb(64, 30, 216);
+}
 .card-container,.cart-container{
   width: 100%;
   min-height: 100vh;
@@ -79,13 +90,13 @@ background:rgb(182, 167, 240);
 .card-title h4{
   color: rgb(55, 0, 255);
   text-align: center;
- 
+ margin: 20px 10px;
 }
 
 .card-description p
 {
   text-align: center!important;
-  margin: 10px !important;
+  margin: 20px !important;
 }
 
 .card-rate-price{
@@ -95,6 +106,7 @@ background:rgb(182, 167, 240);
   justify-content: space-around;
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .not-found{
@@ -122,7 +134,7 @@ background:rgb(182, 167, 240);
   margin-left: 10px;
     margin-bottom: -3px;
     position: relative;
-    color:red;
+    color:white;
     font-weight: bold;
 }
 
@@ -137,21 +149,34 @@ background:rgb(182, 167, 240);
 }
 .cart-items-price{
   display: flex;
-  justify-content: center;
-  flex-direction: row;
+  justify-content: space-around;
+  
+  width: 100%;
+ background-color: rgb(109, 125, 212);
+  flex-wrap: wrap;
 }
 .total-price{
-  width: 50%;
+  width: 40%;
   text-align: center;
   color: white;
-  background-color: green;
+  background-color: rgb(243, 15, 121);
+
+  border: 2px solid rgb(133, 3, 46);
+  border-radius: 10px;
+margin: 10px 0; 
+  padding:10px;
 }
 
 .total-items{
-  width: 50%;
+  width: 40%;
   text-align: center;
   color: white;
-  background-color: rgb(128, 0, 79);
+  background-color: rgb(243, 15, 121);
+
+  border: 2px solid rgb(133, 3, 46);
+  padding:10px;
+  border-radius: 10px;
+   margin: 10px 0; 
 }
 
 .product-item-details{
@@ -185,3 +210,71 @@ background:rgb(182, 167, 240);
   align-items: center;
 }
 
+.hamburger-icon{
+  display: none;
+}
+
+.hamburger-icon-close{
+  display: none; /* Hide the hamburger icon by default */
+}
+
+.mobile-menu{
+  display: none;
+}
+
+
+
+
+@media (max-width:1165px) {
+
+  .navbar-container{
+    justify-content: space-between;
+  }
+ 
+ 
+
+ .mobile-navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(14, 5, 54);
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top:0;
+  width: 100%;
+  z-index: 1;
+ }
+
+  .desktop-menu{
+    display: none;
+  }
+
+  .mobile-menu{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    
+  }
+
+  .menu-div{
+    width: 90%;
+    margin:20px;
+    
+  }
+
+  .hamburger-icon{
+    display: flex;
+   
+  }
+
+  .hamburger-icon-close{
+    display: flex;
+    position: absolute; /* Position the icon */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+  }
+}

@@ -114,7 +114,23 @@ const reducer = (state,action) => {
             cart_item_count:state.cart_item_count-1,
             cart_all_product: cartAllProductAfterDelete, // Update cart_all_product with the updated array
           };
-     
+
+
+       case "SET_HAMBURGER_STATUS":
+        let updated_hamburger_status=false;
+        if(state.hamburger_status)
+        {
+          updated_hamburger_status=false;
+        }
+         
+        else{
+          updated_hamburger_status=true;
+        }
+        console.log(state.hamburger_status);
+          return{
+            ...state,
+            hamburger_status:updated_hamburger_status
+          }
       default:
     return state;
   }

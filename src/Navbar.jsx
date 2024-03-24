@@ -1,12 +1,13 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom';
 import { useGlobalContext } from './AppProvider';
-
+import MenuSharpIcon from '@material-ui/icons/MenuSharp';
+import CancelPresentationSharpIcon from '@material-ui/icons/CancelPresentationSharp';
 const Navbar = () => {
 
     const location=useLocation();
 console.log(location);
-  const {category_type,setCategory,setRating,setGoHome,rating_type,cart_item_count}=useGlobalContext();
+  const {category_type,setCategory,setRating,setGoHome,rating_type,cart_item_count,mobileMenuOpen,hamburger_status}=useGlobalContext();
   const InputEvent=(e)=>{
       setCategory(e.target.value);
   }
@@ -20,10 +21,15 @@ console.log(location);
     setRating(e.target.value);
     }
 
+  const isOpen=()=>{
+    mobileMenuOpen();
+  }
+
   return (
    
     <>
-        <div className='navbar-container'>
+    {/* mobile-navbar class is needed for positioning home,cart everything in vertical form*/}
+        <div className={hamburger_status?"mobile-navbar":'navbar-container'}>
             <div className='brand'>
 
             
@@ -32,31 +38,38 @@ console.log(location);
             
            {(location.pathname==='/')?(
 
-            <><div className='select-box'>
+            <>
+            <div className={hamburger_status?" mobile-menu":"desktop-menu"}>
+              <div className='menu-div'>
 
-            <select onChange={InputEvent} value={category_type}>
-              <option disabled value="">Choose a category</option>
-              <option value="all">All</option>
-              <option value="electronics">electronics</option>
-              <option value="jewelery">jewelery</option>
-              <option value="men's clothing">men's clothing</option>
-              <option value="women's clothing">women's clothing</option>
-            </select>
-
-
-          </div><div className='select-box'>
-
-              <select onChange={RatingEvent} value={rating_type}>
-                <option disabled value="">Choose Rating</option>
-                <option value="all">All</option>
-                <option value="4">4-5</option>
-                <option value="3">3-4</option>
-                <option value="2">2-3</option>
-                <option value="1">1-2</option>
-              </select>
+                  <select onChange={InputEvent} value={category_type}>
+                    <option disabled value="">Choose a category</option>
+                    <option value="all">All</option>
+                    <option value="electronics">electronics</option>
+                    <option value="jewelery">jewelery</option>
+                    <option value="men's clothing">men's clothing</option>
+                    <option value="women's clothing">women's clothing</option>
+                  </select>
 
 
-            </div></>
+              </div>
+          
+             <div className='menu-div'>
+
+                  <select onChange={RatingEvent} value={rating_type}>
+                    <option disabled value="">Choose Rating</option>
+                    <option value="all">All</option>
+                    <option value="4">4-5</option>
+                    <option value="3">3-4</option>
+                    <option value="2">2-3</option>
+                    <option value="1">1-2</option>
+                  </select>
+
+
+              </div> 
+
+            </div> 
+            </>
 
            ):
            <div></div>
@@ -72,7 +85,16 @@ console.log(location);
             
             </div>
 
+            {/* hamburger-icon-close is needed for positioning the closed hamburger icon in top left*/}
+        <div className={hamburger_status?" hamburger-icon-close":'hamburger-icon'} onClick={isOpen}>
+          { (hamburger_status)?<CancelPresentationSharpIcon/>:<MenuSharpIcon/>}
+           </div>
+           
+           
+
         </div>
+
+        
     </>
   )
 }

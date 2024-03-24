@@ -18,7 +18,7 @@ const CartItem = (props) => {
             </div>
 
             <div className='card-rate-price'>
-                <h5>Price:{props.price}₹</h5>
+                <h5>Price:${props.price}</h5>
                 <h5>Rating:{props.rate}</h5>
             </div>
 

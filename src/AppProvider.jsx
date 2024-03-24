@@ -16,8 +16,8 @@ const AppProvider = ({children}) => {
         all_products:[],
         rating_type:"",
         cart_all_product:[],
-        cart_item_count:0
-    
+        cart_item_count:0,
+        hamburger_status:false
     }
 
     //iseReducer Hook
@@ -102,11 +102,13 @@ useEffect(()=>{
    
 
 
-
+const mobileMenuOpen=()=>{
+dispatch({type:"SET_HAMBURGER_STATUS"})
+}
 
 console.log(state.products);
   return (
-   <AppContext.Provider value={{...state,setCategory,setRating,setGoHome,setCartItem,deleteCartItem}}>{children}</AppContext.Provider>
+   <AppContext.Provider value={{...state,setCategory,setRating,setGoHome,setCartItem,deleteCartItem,mobileMenuOpen}}>{children}</AppContext.Provider>
   )
 }
 

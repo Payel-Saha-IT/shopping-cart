@@ -18,8 +18,8 @@ const Cart = () => {
     <div>
         <>
         <div className='cart-items-price'>
-        <div className='total-items'><h3>Total Items:{cart_item_count}</h3></div>
-        <div className='total-price'><h3>Total Cart Price:{(Math.round(totalPrice * 100) / 100).toFixed(2)}₹</h3></div>
+        <div className='total-items'><p>Total Items: {cart_item_count}</p></div>
+        <div className='total-price'><p>Total Cart Price: ${(Math.round(totalPrice * 100) / 100).toFixed(2)}</p></div>
         </div>
         
         <div className='cart-container'>
