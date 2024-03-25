@@ -7,7 +7,9 @@ const Navbar = () => {
 
     const location=useLocation();
 console.log(location);
-  const {category_type,setCategory,setRating,setGoHome,rating_type,cart_item_count,mobileMenuOpen,hamburger_status}=useGlobalContext();
+  const {category_type,setCategory,setRating,setGoHome,rating_type,cart_item_count,mobileMenuOpen,hamburger_status,category_list}=useGlobalContext();
+
+
   const InputEvent=(e)=>{
       setCategory(e.target.value);
   }
@@ -45,10 +47,11 @@ console.log(location);
                   <select onChange={InputEvent} value={category_type}>
                     <option disabled value="">Choose a category</option>
                     <option value="all">All</option>
-                    <option value="electronics">electronics</option>
-                    <option value="jewelery">jewelery</option>
-                    <option value="men's clothing">men's clothing</option>
-                    <option value="women's clothing">women's clothing</option>
+                    {
+                      category_list.map((cat)=>{
+                       return <option value={`${cat}`}>{`${cat}`}</option>
+                      })    
+                    }  
                   </select>
 
 

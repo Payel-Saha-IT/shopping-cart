@@ -17,7 +17,8 @@ const AppProvider = ({children}) => {
         rating_type:"",
         cart_all_product:[],
         cart_item_count:0,
-        hamburger_status:false
+        hamburger_status:false,
+        category_list:[]
     }
 
     //iseReducer Hook
@@ -74,6 +75,7 @@ console.log(state.cart_products);
             });
     };
 
+    
 
 
         const increaseCount=(id)=>{
@@ -102,6 +104,15 @@ console.log(state.category);
     loadProductsAndShowHomePage();
    },[])
 
+   const getAllCategory=()=>{
+    state.all_products.map((val)=>{
+      if(!state.category_list.includes(val.category)){
+        state.category_list.push(val.category)
+      }
+    })
+    }
+
+   getAllCategory();
 
 
  //filtering based on rating and category
@@ -112,6 +123,9 @@ useEffect(()=>{
 },[state.rating_type,state.category_type])
    
 
+
+
+  
 
 const mobileMenuOpen=()=>{
 dispatch({type:"SET_HAMBURGER_STATUS"})
