@@ -37,11 +37,7 @@ const CartItem = (props) => {
             </div>
             
             <div className='cart-item-quantity'>
-            <IconButton color="primary" onClick={incrementCount}>
-                < AddCircleOutlineIcon/>
-            </IconButton>
-            <div className='quantity-title'><h3>Quantity: {props.quantity}</h3></div>
-
+            
             {(props.quantity>1)?
               <IconButton color="primary" onClick={decrementCount}>
                 < RemoveCircleOutlineIcon/>
@@ -51,7 +47,13 @@ const CartItem = (props) => {
             </IconButton>
             
             }
-            
+
+            <div className='quantity-title'><h3>Quantity: {props.quantity}</h3></div>
+
+            <IconButton color="primary" onClick={incrementCount}>
+                < AddCircleOutlineIcon/>
+            </IconButton>
+
             </div>
 
                 <IconButton color="primary" onClick={SelectItem}>
