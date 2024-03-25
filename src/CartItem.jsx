@@ -31,7 +31,7 @@ const CartItem = (props) => {
             </div>
 
             <div className='card-rate-price'>
-                <h5>Item Price: ${props.price}</h5>
+                <h5>Item Price: ${props.price*props.quantity}</h5>
                 <h5>Rating: {props.rate}</h5>
                 
             </div>
