@@ -31,7 +31,7 @@ const CartItem = (props) => {
             </div>
 
             <div className='card-rate-price'>
-                <h5>Price: ${props.price*props.quantity}</h5>
+                <h5>Price: ${(Math.round((props.price*props.quantity)*100)/100).toFixed(2)}</h5>
                 <h5>Rating: {props.rate}</h5>
                 
             </div>
