@@ -9,7 +9,7 @@ const Cart = () => {
     }
     let totalPrice=0;
     cart_all_product.map((val)=>{
-        return totalPrice=totalPrice+val.price;
+        return totalPrice=totalPrice+(val.quantity*val.price);
         
     })
 
@@ -27,7 +27,7 @@ const Cart = () => {
             
                 return (
                    <>
-                        <CartItem key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate}  deleteItem={DeleteFromCart} unqID={val.id}></CartItem>
+                        <CartItem key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate} quantity={val.quantity} deleteItem={DeleteFromCart} unqID={val.id}></CartItem>
                         </>
                 )
             })

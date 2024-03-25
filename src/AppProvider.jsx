@@ -74,6 +74,17 @@ console.log(state.cart_products);
             });
     };
 
+
+
+        const increaseCount=(id)=>{
+            dispatch({type:"Increase_Item_Count",payload:id})
+        }
+
+        const decreaseCount=(id)=>{
+            dispatch({type:"Decrease_Item_Count",payload:id})
+        }
+
+
     //when home is clicked again then set all the state items to the initial state and again show all products
     const setGoHome=()=>{
 
@@ -108,7 +119,7 @@ dispatch({type:"SET_HAMBURGER_STATUS"})
 
 console.log(state.products);
   return (
-   <AppContext.Provider value={{...state,setCategory,setRating,setGoHome,setCartItem,deleteCartItem,mobileMenuOpen}}>{children}</AppContext.Provider>
+   <AppContext.Provider value={{...state,setCategory,setRating,setGoHome,setCartItem,deleteCartItem,increaseCount,decreaseCount,mobileMenuOpen}}>{children}</AppContext.Provider>
   )
 }
 

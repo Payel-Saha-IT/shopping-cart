@@ -93,27 +93,110 @@ const reducer = (state,action) => {
 
       //add items to cart
         case "SET_CART_ITEM":
-            const cartItem = state.all_products.filter((val) => {
-              return action.payload === val.id;
-            });
+          const cartItem = state.all_products.filter((val) => {
+            return action.payload === val.id;
+          });
+
+          const existingIndex=state.cart_all_product.findIndex((val)=>{
+            return val.id===cartItem[0].id;
+          })
+          
+          console.log(`existingIndex${existingIndex}`);
+          //cartItem[0].quantity=2;
+         
+          if(existingIndex===-1)
+          {
+            cartItem[0].quantity=1;
             const updatedCartAllProduct = [...state.cart_all_product, ...cartItem]; // Add the new cartItem to the existing cart_all_product
+          return {
+            ...state,
+            cart_item_count:state.cart_item_count+1,
+            cart_all_product: updatedCartAllProduct, // Update cart_all_product with the updated array
+          };
+          }
+         
+          else if (existingIndex !== -1) {
+            const updatedCartAllProduct = state.cart_all_product.map((item, index) => 
+            {
+                if (index === existingIndex) {
+                    return { ...item, quantity: item.quantity + 1 };
+                }
+                return item;
+            });
             return {
-              ...state,
-              cart_item_count:state.cart_item_count+1,
-              cart_all_product: updatedCartAllProduct, // Update cart_all_product with the updated array
+                ...state,
+                cart_item_count: state.cart_item_count + 1,
+                cart_all_product: updatedCartAllProduct,
             };
+        }
+        
           
         //delete items from the cart    
          case "DELETE_CART_ITEM":
-          const remainingItem = state.cart_all_product.filter((val) => {
-            return action.payload !== val.id;
-          });
-          const cartAllProductAfterDelete = [...remainingItem]; // Add the new cartItem to the existing cart_all_product
-          return {
-            ...state,
-            cart_item_count:state.cart_item_count-1,
-            cart_all_product: cartAllProductAfterDelete, // Update cart_all_product with the updated array
-          };
+          const deletedItem=state.cart_all_product.filter((val)=>{
+            return val.id===action.payload;
+          })
+
+          const newcartItemCount=state.cart_item_count-deletedItem[0].quantity;
+
+        const remainingItem = state.cart_all_product.filter((val) => {
+          return action.payload !== val.id;
+        });
+        const cartAllProductAfterDelete = [...remainingItem]; // Add the new cartItem to the existing cart_all_product
+        return {
+          ...state,
+          cart_item_count:newcartItemCount,
+          cart_all_product: cartAllProductAfterDelete, // Update cart_all_product with the updated array
+        };
+
+        case "Increase_Item_Count":
+          console.log(`Payload:${action.payload}`);
+            const TargetItem=state.cart_all_product.filter((val)=>{
+                return val.id===action.payload;
+            })
+
+            const indexOfTheItem=state.cart_all_product.findIndex((val)=>{
+              return val.id===TargetItem[0].id;
+            })
+
+            const updatedCart=state.cart_all_product.map((item,index)=>{
+              if(indexOfTheItem===index)
+              {
+                return {...item,quantity:item.quantity+1};
+              }
+              return item;
+            })  
+
+            return{
+              ...state,
+              cart_all_product:updatedCart,
+              cart_item_count:state.cart_item_count+1
+            }
+
+
+            case "Decrease_Item_Count":
+          console.log(`Payload:${action.payload}`);
+            const TargetItemforDecrease=state.cart_all_product.filter((val)=>{
+                return val.id===action.payload;
+            })
+
+            const indexOfTheDecreasedItem=state.cart_all_product.findIndex((val)=>{
+              return val.id===TargetItemforDecrease[0].id;
+            })
+
+            let updatedNewCart=state.cart_all_product.map((item,index)=>{
+              if(indexOfTheDecreasedItem===index)
+              {
+                return {...item,quantity:item.quantity-1};
+              }
+              return item;
+            })  
+
+            return{
+              ...state,
+              cart_all_product:updatedNewCart,
+              cart_item_count:(TargetItemforDecrease[0].quantity===1)?state.cart_item_count:state.cart_item_count-1
+            }
 
 
        case "SET_HAMBURGER_STATUS":

@@ -138,6 +138,18 @@ background:rgb(182, 167, 240);
     font-weight: bold;
 }
 
+.cart-item-quantity{
+color: rgb(250, 11, 131);
+margin-top: 3px;
+font-weight: bold;
+display: flex;
+justify-content: space-between;
+}
+
+.quantity-title{
+  margin: 12px;
+}
+
 .cart{
   /* margin-right: 10px; */
   width: 7%;
