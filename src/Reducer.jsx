@@ -17,6 +17,11 @@ const reducer = (state,action) => {
           all_products:action.payload
         };
         
+    case "GET_ALL_CATEGORY":
+      return{
+        ...state,
+        category_list:action.payload
+      }    
     //set category type,upon selecting category type from select box    
     case "SET_CATEGORY":
        return {

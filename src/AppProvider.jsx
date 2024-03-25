@@ -105,14 +105,20 @@ console.log(state.category);
    },[])
 
    const getAllCategory=()=>{
+    var cat_list=[];
     state.all_products.map((val)=>{
-      if(!state.category_list.includes(val.category)){
-        state.category_list.push(val.category)
+      if(!cat_list.includes(val.category)){
+            cat_list.push(val.category)
       }
-    })
+    });
+
+    dispatch({type:"GET_ALL_CATEGORY",payload:cat_list})
     }
 
-   getAllCategory();
+    useEffect(()=>{
+        getAllCategory();
+    },[state.all_products])
+   
 
 
  //filtering based on rating and category
