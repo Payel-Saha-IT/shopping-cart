@@ -90,7 +90,7 @@ console.log(state.cart_products);
     //when home is clicked again then set all the state items to the initial state and again show all products
     const setGoHome=()=>{
 
-      dispatch({type:"Refresh_To_Initial",payload:state.initialState})
+      dispatch({type:"Refresh_To_Initial"})
     
     loadProductsAndShowHomePage();
     }
@@ -108,7 +108,7 @@ console.log(state.category);
     var cat_list=[];
     state.all_products.map((val)=>{
       if(!cat_list.includes(val.category)){
-            cat_list.push(val.category)
+          cat_list.push(val.category)
       }
     });
 

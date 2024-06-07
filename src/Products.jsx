@@ -6,21 +6,10 @@ import { spiral } from 'ldrs'
 spiral.register()
 const Products = () => {
 
-  const {products,setCartItem,isLoading}=useGlobalContext();
+  const {products,isLoading}=useGlobalContext();
   console.log(products);
 
   
-const AddItem=(id)=>{
-  console.log(id);
-  setCartItem(id);
-}
-
-
-
-
-
-// Default values shown
-
 
 if(isLoading)
 
@@ -42,7 +31,7 @@ if(products.length>0)
             
                 return (
                  //we have passed a props named unqID,though we had props key,because if we use 'key',console.log(id) in AddItem will show undefined
-                        <Cards key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate} addtoCart={AddItem} unqID={val.id}></Cards>
+                        <Cards key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate} unqID={val.id}></Cards>
                    
                 )
             })

@@ -3,12 +3,14 @@ import React from 'react'
 import { IconButton } from '@material-ui/core';
 import { AddShoppingCartSharp } from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
+import { useGlobalContext } from './AppProvider';
 
 const Cards = (props) => {
 
-  //passing the unique id of a product to 'Products.jsx'
+  const {setCartItem}=useGlobalContext();
+ 
   const SelectItem=()=>{
-    props.addtoCart(props.unqID);
+    setCartItem(props.unqID);
   }
 
   //Each product card design
@@ -19,7 +21,7 @@ const Cards = (props) => {
     
             <div className='card-image'>
             <NavLink to={`/product/${props.unqID}`}>
-              <img src={props.imgsrc}/>
+              <img src={props.imgsrc} alt='product'/>
             </NavLink>   
             </div>
            

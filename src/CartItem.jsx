@@ -5,9 +5,9 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import { useGlobalContext } from './AppProvider';
 const CartItem = (props) => {
-  const {increaseCount,decreaseCount}=useGlobalContext();
+  const {increaseCount,decreaseCount,deleteCartItem}=useGlobalContext();
     const SelectItem=()=>{
-            props.deleteItem(props.unqID);
+      deleteCartItem(props.unqID);
     }
 
     const incrementCount=()=>{
@@ -24,7 +24,7 @@ const CartItem = (props) => {
    <>
      <div className='card-item'>
             <div className='card-image'>
-              <img src={props.imgsrc}/>
+              <img src={props.imgsrc} alt='cart-product'/>
             </div>
             <div className='card-title'>
               <h4>{props.title}</h4>

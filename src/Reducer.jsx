@@ -107,7 +107,7 @@ const reducer = (state,action) => {
           })
           
           console.log(`existingIndex${existingIndex}`);
-          //cartItem[0].quantity=2;
+       
          
           if(existingIndex===-1)
           {
@@ -147,7 +147,7 @@ const reducer = (state,action) => {
         const remainingItem = state.cart_all_product.filter((val) => {
           return action.payload !== val.id;
         });
-        const cartAllProductAfterDelete = [...remainingItem]; // Add the new cartItem to the existing cart_all_product
+        const cartAllProductAfterDelete = [...remainingItem]; 
         return {
           ...state,
           cart_item_count:newcartItemCount,

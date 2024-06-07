@@ -2,11 +2,9 @@ import React from 'react'
 import { useGlobalContext } from './AppProvider'
 import CartItem from './CartItem';
 const Cart = () => {
-    const {cart_all_product,cart_item_count,deleteCartItem}=useGlobalContext();
+    const {cart_all_product,cart_item_count}=useGlobalContext();
 
-    const DeleteFromCart=(id)=>{
-            deleteCartItem(id);
-    }
+    
     let totalPrice=0;
     cart_all_product.map((val)=>{
         return totalPrice=totalPrice+(val.quantity*val.price);
@@ -27,7 +25,7 @@ const Cart = () => {
             
                 return (
                    <>
-                        <CartItem key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate} quantity={val.quantity} deleteItem={DeleteFromCart} unqID={val.id}></CartItem>
+                        <CartItem key={val.id} imgsrc={val.image} title={val.title} description={val.description} price={val.price} rate={val.rating.rate} quantity={val.quantity} unqID={val.id}></CartItem>
                         </>
                 )
             })
