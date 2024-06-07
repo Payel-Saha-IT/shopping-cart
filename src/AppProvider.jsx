@@ -12,7 +12,6 @@ const AppProvider = ({children}) => {
         isLoading:true,
         products:[],
         category_type:"",
-        filtered_products:[],
         all_products:[],
         rating_type:"",
         cart_all_product:[],

@@ -79,7 +79,6 @@ const reducer = (state,action) => {
         
           return {
             ...state,
-            filtered_products: filteredProducts,
             products: filteredProducts
           };
         
@@ -200,7 +199,8 @@ const reducer = (state,action) => {
             return{
               ...state,
               cart_all_product:updatedNewCart,
-              cart_item_count:(TargetItemforDecrease[0].quantity===1)?state.cart_item_count:state.cart_item_count-1
+              
+              cart_item_count:state.cart_item_count-1
             }
 
 
