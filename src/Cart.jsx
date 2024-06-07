@@ -6,10 +6,10 @@ const Cart = () => {
 
     
     let totalPrice=0;
-    cart_all_product.map((val)=>{
-        return totalPrice=totalPrice+(val.quantity*val.price);
+    totalPrice=cart_all_product.reduce((accum,val)=>{
+        return accum+(val.quantity*val.price);
         
-    })
+    },0)
 
     if(cart_all_product.length>0)  
   return (
