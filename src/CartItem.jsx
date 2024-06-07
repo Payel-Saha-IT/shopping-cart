@@ -11,7 +11,6 @@ const CartItem = (props) => {
     }
 
     const incrementCount=()=>{
-      ;
       increaseCount(props.unqID);
     }
 
